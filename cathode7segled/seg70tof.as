@@ -1,0 +1,701 @@
+opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+
+opt pagewidth 120
+
+	opt lm
+
+	processor	16F877A
+clrc	macro
+	bcf	3,0
+	endm
+clrz	macro
+	bcf	3,2
+	endm
+setc	macro
+	bsf	3,0
+	endm
+setz	macro
+	bsf	3,2
+	endm
+skipc	macro
+	btfss	3,0
+	endm
+skipz	macro
+	btfss	3,2
+	endm
+skipnc	macro
+	btfsc	3,0
+	endm
+skipnz	macro
+	btfsc	3,2
+	endm
+indf	equ	0
+indf0	equ	0
+pc	equ	2
+pcl	equ	2
+status	equ	3
+fsr	equ	4
+fsr0	equ	4
+c	equ	1
+z	equ	0
+pclath	equ	10
+# 2 "G:\PIC ass\7SEGMENT\cathode7segled\7seg0tof.c"
+	psect config,class=CONFIG,delta=2 ;#
+# 2 "G:\PIC ass\7SEGMENT\cathode7segled\7seg0tof.c"
+	dw 0x1f7a ;#
+	FNROOT	_main
+	global	_PORTD
+psect	maintext,global,class=CODE,delta=2
+global __pmaintext
+__pmaintext:
+_PORTD	set	8
+	global	_TRISD
+_TRISD	set	136
+	file	"seg70tof.as"
+	line	#
+psect cinit,class=CODE,delta=2
+global start_initialization
+start_initialization:
+
+psect cinit,class=CODE,delta=2
+global end_of_initialization
+
+;End of C runtime variable initialization code
+
+end_of_initialization:
+clrf status
+ljmp _main	;jump to C main() function
+psect	cstackCOMMON,class=COMMON,space=1
+global __pcstackCOMMON
+__pcstackCOMMON:
+	global	?_main
+?_main:	; 0 bytes @ 0x0
+	global	??_main
+??_main:	; 0 bytes @ 0x0
+	ds	3
+;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+;;Auto spaces:   Size  Autos    Used
+;; COMMON          14      3       3
+;; BANK0           80      0       0
+;; BANK1           80      0       0
+;; BANK3           96      0       0
+;; BANK2           96      0       0
+
+;;
+;; Pointer list with targets:
+
+
+
+;;
+;; Critical Paths under _main in COMMON
+;;
+;;   None.
+;;
+;; Critical Paths under _main in BANK0
+;;
+;;   None.
+;;
+;; Critical Paths under _main in BANK1
+;;
+;;   None.
+;;
+;; Critical Paths under _main in BANK3
+;;
+;;   None.
+;;
+;; Critical Paths under _main in BANK2
+;;
+;;   None.
+
+;;
+;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+;;
+
+;;
+;;Call Graph Tables:
+;;
+;; ---------------------------------------------------------------------------------
+;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+;; ---------------------------------------------------------------------------------
+;; (0) _main                                                 3     3      0       0
+;;                                              0 COMMON     3     3      0
+;; ---------------------------------------------------------------------------------
+;; Estimated maximum stack depth 0
+;; ---------------------------------------------------------------------------------
+
+;; Call Graph Graphs:
+
+;; _main (ROOT)
+;;
+
+;; Address spaces:
+
+;;Name               Size   Autos  Total    Cost      Usage
+;;BITCOMMON            E      0       0       0        0.0%
+;;EEDATA             100      0       0       0        0.0%
+;;NULL                 0      0       0       0        0.0%
+;;CODE                 0      0       0       0        0.0%
+;;COMMON               E      3       3       1       21.4%
+;;BITSFR0              0      0       0       1        0.0%
+;;SFR0                 0      0       0       1        0.0%
+;;BITSFR1              0      0       0       2        0.0%
+;;SFR1                 0      0       0       2        0.0%
+;;STACK                0      0       0       2        0.0%
+;;ABS                  0      0       0       3        0.0%
+;;BITBANK0            50      0       0       4        0.0%
+;;BITSFR3              0      0       0       4        0.0%
+;;SFR3                 0      0       0       4        0.0%
+;;BANK0               50      0       0       5        0.0%
+;;BITSFR2              0      0       0       5        0.0%
+;;SFR2                 0      0       0       5        0.0%
+;;BITBANK1            50      0       0       6        0.0%
+;;BANK1               50      0       0       7        0.0%
+;;BITBANK3            60      0       0       8        0.0%
+;;BANK3               60      0       0       9        0.0%
+;;BITBANK2            60      0       0      10        0.0%
+;;BANK2               60      0       0      11        0.0%
+;;DATA                 0      0       0      12        0.0%
+
+	global	_main
+psect	maintext
+
+;; *************** function _main *****************
+;; Defined at:
+;;		line 5 in file "G:\PIC ass\7SEGMENT\cathode7segled\7seg0tof.c"
+;; Parameters:    Size  Location     Type
+;;		None
+;; Auto vars:     Size  Location     Type
+;;		None
+;; Return value:  Size  Location     Type
+;;		None               void
+;; Registers used:
+;;		wreg, status,2
+;; Tracked objects:
+;;		On entry : 17F/0
+;;		On exit  : 0/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       0       0       0       0
+;;      Locals:         0       0       0       0       0
+;;      Temps:          3       0       0       0       0
+;;      Totals:         3       0       0       0       0
+;;Total ram usage:        3 bytes
+;; This function calls:
+;;		Nothing
+;; This function is called by:
+;;		Startup code after reset
+;; This function uses a non-reentrant model
+;;
+psect	maintext
+	file	"G:\PIC ass\7SEGMENT\cathode7segled\7seg0tof.c"
+	line	5
+	global	__size_of_main
+	__size_of_main	equ	__end_of_main-_main
+	
+_main:	
+	opt	stack 8
+; Regs used in _main: [wreg+status,2]
+	line	6
+	
+l1825:	
+;7seg0tof.c: 6: TRISD=0;
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	status, 6	;RP1=0, select bank1
+	clrf	(136)^080h	;volatile
+	goto	l1827
+	line	7
+;7seg0tof.c: 7: while(1)
+	
+l687:	
+	line	9
+	
+l1827:	
+;7seg0tof.c: 8: {
+;7seg0tof.c: 9: PORTD=0b00111111;
+	movlw	(03Fh)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	10
+	
+l1829:	
+;7seg0tof.c: 10: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2147:
+	decfsz	((??_main+0)+0),f
+	goto	u2147
+	decfsz	((??_main+0)+0+1),f
+	goto	u2147
+	decfsz	((??_main+0)+0+2),f
+	goto	u2147
+	clrwdt
+opt asmopt_on
+
+	line	12
+	
+l1831:	
+;7seg0tof.c: 12: PORTD=0b00000110;
+	movlw	(06h)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	13
+	
+l1833:	
+;7seg0tof.c: 13: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2157:
+	decfsz	((??_main+0)+0),f
+	goto	u2157
+	decfsz	((??_main+0)+0+1),f
+	goto	u2157
+	decfsz	((??_main+0)+0+2),f
+	goto	u2157
+	clrwdt
+opt asmopt_on
+
+	line	15
+	
+l1835:	
+;7seg0tof.c: 15: PORTD=0b01011011;
+	movlw	(05Bh)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	16
+	
+l1837:	
+;7seg0tof.c: 16: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2167:
+	decfsz	((??_main+0)+0),f
+	goto	u2167
+	decfsz	((??_main+0)+0+1),f
+	goto	u2167
+	decfsz	((??_main+0)+0+2),f
+	goto	u2167
+	clrwdt
+opt asmopt_on
+
+	line	18
+	
+l1839:	
+;7seg0tof.c: 18: PORTD=0b01001111;
+	movlw	(04Fh)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	19
+	
+l1841:	
+;7seg0tof.c: 19: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2177:
+	decfsz	((??_main+0)+0),f
+	goto	u2177
+	decfsz	((??_main+0)+0+1),f
+	goto	u2177
+	decfsz	((??_main+0)+0+2),f
+	goto	u2177
+	clrwdt
+opt asmopt_on
+
+	line	21
+	
+l1843:	
+;7seg0tof.c: 21: PORTD=0b01100110;
+	movlw	(066h)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	22
+	
+l1845:	
+;7seg0tof.c: 22: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2187:
+	decfsz	((??_main+0)+0),f
+	goto	u2187
+	decfsz	((??_main+0)+0+1),f
+	goto	u2187
+	decfsz	((??_main+0)+0+2),f
+	goto	u2187
+	clrwdt
+opt asmopt_on
+
+	line	24
+	
+l1847:	
+;7seg0tof.c: 24: PORTD=0b01101101;
+	movlw	(06Dh)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	25
+	
+l1849:	
+;7seg0tof.c: 25: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2197:
+	decfsz	((??_main+0)+0),f
+	goto	u2197
+	decfsz	((??_main+0)+0+1),f
+	goto	u2197
+	decfsz	((??_main+0)+0+2),f
+	goto	u2197
+	clrwdt
+opt asmopt_on
+
+	line	27
+	
+l1851:	
+;7seg0tof.c: 27: PORTD=0b01111101;
+	movlw	(07Dh)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	28
+	
+l1853:	
+;7seg0tof.c: 28: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2207:
+	decfsz	((??_main+0)+0),f
+	goto	u2207
+	decfsz	((??_main+0)+0+1),f
+	goto	u2207
+	decfsz	((??_main+0)+0+2),f
+	goto	u2207
+	clrwdt
+opt asmopt_on
+
+	line	30
+	
+l1855:	
+;7seg0tof.c: 30: PORTD=0b00000111;
+	movlw	(07h)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	31
+	
+l1857:	
+;7seg0tof.c: 31: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2217:
+	decfsz	((??_main+0)+0),f
+	goto	u2217
+	decfsz	((??_main+0)+0+1),f
+	goto	u2217
+	decfsz	((??_main+0)+0+2),f
+	goto	u2217
+	clrwdt
+opt asmopt_on
+
+	line	33
+	
+l1859:	
+;7seg0tof.c: 33: PORTD=0b01111111;
+	movlw	(07Fh)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	34
+	
+l1861:	
+;7seg0tof.c: 34: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2227:
+	decfsz	((??_main+0)+0),f
+	goto	u2227
+	decfsz	((??_main+0)+0+1),f
+	goto	u2227
+	decfsz	((??_main+0)+0+2),f
+	goto	u2227
+	clrwdt
+opt asmopt_on
+
+	line	36
+	
+l1863:	
+;7seg0tof.c: 36: PORTD=0b01101111;
+	movlw	(06Fh)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	37
+	
+l1865:	
+;7seg0tof.c: 37: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2237:
+	decfsz	((??_main+0)+0),f
+	goto	u2237
+	decfsz	((??_main+0)+0+1),f
+	goto	u2237
+	decfsz	((??_main+0)+0+2),f
+	goto	u2237
+	clrwdt
+opt asmopt_on
+
+	line	39
+	
+l1867:	
+;7seg0tof.c: 39: PORTD=0b01110111;
+	movlw	(077h)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	40
+	
+l1869:	
+;7seg0tof.c: 40: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2247:
+	decfsz	((??_main+0)+0),f
+	goto	u2247
+	decfsz	((??_main+0)+0+1),f
+	goto	u2247
+	decfsz	((??_main+0)+0+2),f
+	goto	u2247
+	clrwdt
+opt asmopt_on
+
+	line	42
+	
+l1871:	
+;7seg0tof.c: 42: PORTD=0b01111111;
+	movlw	(07Fh)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	43
+	
+l1873:	
+;7seg0tof.c: 43: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2257:
+	decfsz	((??_main+0)+0),f
+	goto	u2257
+	decfsz	((??_main+0)+0+1),f
+	goto	u2257
+	decfsz	((??_main+0)+0+2),f
+	goto	u2257
+	clrwdt
+opt asmopt_on
+
+	line	45
+	
+l1875:	
+;7seg0tof.c: 45: PORTD=0b00111001;
+	movlw	(039h)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	46
+	
+l1877:	
+;7seg0tof.c: 46: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2267:
+	decfsz	((??_main+0)+0),f
+	goto	u2267
+	decfsz	((??_main+0)+0+1),f
+	goto	u2267
+	decfsz	((??_main+0)+0+2),f
+	goto	u2267
+	clrwdt
+opt asmopt_on
+
+	line	48
+	
+l1879:	
+;7seg0tof.c: 48: PORTD=0b00111111;
+	movlw	(03Fh)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	49
+	
+l1881:	
+;7seg0tof.c: 49: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2277:
+	decfsz	((??_main+0)+0),f
+	goto	u2277
+	decfsz	((??_main+0)+0+1),f
+	goto	u2277
+	decfsz	((??_main+0)+0+2),f
+	goto	u2277
+	clrwdt
+opt asmopt_on
+
+	line	51
+	
+l1883:	
+;7seg0tof.c: 51: PORTD=0b01111001;
+	movlw	(079h)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	52
+	
+l1885:	
+;7seg0tof.c: 52: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2287:
+	decfsz	((??_main+0)+0),f
+	goto	u2287
+	decfsz	((??_main+0)+0+1),f
+	goto	u2287
+	decfsz	((??_main+0)+0+2),f
+	goto	u2287
+	clrwdt
+opt asmopt_on
+
+	line	54
+	
+l1887:	
+;7seg0tof.c: 54: PORTD=0b01110001;
+	movlw	(071h)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(8)	;volatile
+	line	55
+	
+l1889:	
+;7seg0tof.c: 55: _delay((unsigned long)((500)*(20000000/4000.0)));
+	opt asmopt_off
+movlw  13
+movwf	((??_main+0)+0+2),f
+movlw	163
+movwf	((??_main+0)+0+1),f
+	movlw	189
+movwf	((??_main+0)+0),f
+u2297:
+	decfsz	((??_main+0)+0),f
+	goto	u2297
+	decfsz	((??_main+0)+0+1),f
+	goto	u2297
+	decfsz	((??_main+0)+0+2),f
+	goto	u2297
+	clrwdt
+opt asmopt_on
+
+	goto	l1827
+	line	56
+	
+l688:	
+	line	7
+	goto	l1827
+	
+l689:	
+	line	57
+	
+l690:	
+	global	start
+	ljmp	start
+	opt stack 0
+GLOBAL	__end_of_main
+	__end_of_main:
+;; =============== function _main ends ============
+
+	signat	_main,88
+psect	maintext
+	global	btemp
+	btemp set 07Eh
+
+	DABS	1,126,2	;btemp
+	global	wtemp0
+	wtemp0 set btemp
+	end

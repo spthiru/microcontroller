@@ -1,0 +1,728 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Wed Aug 30 08:10:05 2023
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 2 "G:\PIC ass\7SEGMENT\cathode7segled\7seg0tof.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 2 "G:\PIC ass\7SEGMENT\cathode7segled\7seg0tof.c"
+    45  2007  1F7A               	dw 0x1f7a ;#
+    46                           	FNROOT	_main
+    47                           	global	_PORTD
+    48                           psect	maintext,global,class=CODE,delta=2
+    49                           global __pmaintext
+    50  06E7                     __pmaintext:
+    51  0008                     _PORTD	set	8
+    52                           	global	_TRISD
+    53  0088                     _TRISD	set	136
+    54                           	file	"seg70tof.as"
+    55                           	line	#
+    56                           psect cinit,class=CODE,delta=2
+    57                           global start_initialization
+    58  06E3                     start_initialization:
+    59                           
+    60                           psect cinit,class=CODE,delta=2
+    61                           global end_of_initialization
+    62                           
+    63                           ;End of C runtime variable initialization code
+    64                           
+    65  06E3                     end_of_initialization:
+    66  06E3  0183               clrf status
+    67  06E4  120A  118A  2EE7   ljmp _main	;jump to C main() function
+    68                           psect	cstackCOMMON,class=COMMON,space=1
+    69                           global __pcstackCOMMON
+    70  0070                     __pcstackCOMMON:
+    71                           	global	?_main
+    72  0070                     ?_main:	; 0 bytes @ 0x0
+    73                           	global	??_main
+    74  0070                     ??_main:	; 0 bytes @ 0x0
+    75  0070                     	ds	3
+    76 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+    77 ;;Auto spaces:   Size  Autos    Used
+    78 ;; COMMON          14      3       3
+    79 ;; BANK0           80      0       0
+    80 ;; BANK1           80      0       0
+    81 ;; BANK3           96      0       0
+    82 ;; BANK2           96      0       0
+    83                           
+    84 ;;
+    85 ;; Pointer list with targets:
+    86                           
+    87                           
+    88                           
+    89 ;;
+    90 ;; Critical Paths under _main in COMMON
+    91 ;;
+    92 ;;   None.
+    93 ;;
+    94 ;; Critical Paths under _main in BANK0
+    95 ;;
+    96 ;;   None.
+    97 ;;
+    98 ;; Critical Paths under _main in BANK1
+    99 ;;
+   100 ;;   None.
+   101 ;;
+   102 ;; Critical Paths under _main in BANK3
+   103 ;;
+   104 ;;   None.
+   105 ;;
+   106 ;; Critical Paths under _main in BANK2
+   107 ;;
+   108 ;;   None.
+   109                           
+   110 ;;
+   111 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   112 ;;
+   113                           
+   114 ;;
+   115 ;;Call Graph Tables:
+   116 ;;
+   117 ;; ---------------------------------------------------------------------------------
+   118 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   119 ;; ---------------------------------------------------------------------------------
+   120 ;; (0) _main                                                 3     3      0       0
+   121 ;;                                              0 COMMON     3     3      0
+   122 ;; ---------------------------------------------------------------------------------
+   123 ;; Estimated maximum stack depth 0
+   124 ;; ---------------------------------------------------------------------------------
+   125                           
+   126 ;; Call Graph Graphs:
+   127                           
+   128 ;; _main (ROOT)
+   129 ;;
+   130                           
+   131 ;; Address spaces:
+   132                           
+   133 ;;Name               Size   Autos  Total    Cost      Usage
+   134 ;;BITCOMMON            E      0       0       0        0.0%
+   135 ;;EEDATA             100      0       0       0        0.0%
+   136 ;;NULL                 0      0       0       0        0.0%
+   137 ;;CODE                 0      0       0       0        0.0%
+   138 ;;COMMON               E      3       3       1       21.4%
+   139 ;;BITSFR0              0      0       0       1        0.0%
+   140 ;;SFR0                 0      0       0       1        0.0%
+   141 ;;BITSFR1              0      0       0       2        0.0%
+   142 ;;SFR1                 0      0       0       2        0.0%
+   143 ;;STACK                0      0       0       2        0.0%
+   144 ;;ABS                  0      0       0       3        0.0%
+   145 ;;BITBANK0            50      0       0       4        0.0%
+   146 ;;BITSFR3              0      0       0       4        0.0%
+   147 ;;SFR3                 0      0       0       4        0.0%
+   148 ;;BANK0               50      0       0       5        0.0%
+   149 ;;BITSFR2              0      0       0       5        0.0%
+   150 ;;SFR2                 0      0       0       5        0.0%
+   151 ;;BITBANK1            50      0       0       6        0.0%
+   152 ;;BANK1               50      0       0       7        0.0%
+   153 ;;BITBANK3            60      0       0       8        0.0%
+   154 ;;BANK3               60      0       0       9        0.0%
+   155 ;;BITBANK2            60      0       0      10        0.0%
+   156 ;;BANK2               60      0       0      11        0.0%
+   157 ;;DATA                 0      0       0      12        0.0%
+   158                           
+   159                           	global	_main
+   160                           psect	maintext
+   161                           
+   162 ;; *************** function _main *****************
+   163 ;; Defined at:
+   164 ;;		line 5 in file "G:\PIC ass\7SEGMENT\cathode7segled\7seg0tof.c"
+   165 ;; Parameters:    Size  Location     Type
+   166 ;;		None
+   167 ;; Auto vars:     Size  Location     Type
+   168 ;;		None
+   169 ;; Return value:  Size  Location     Type
+   170 ;;		None               void
+   171 ;; Registers used:
+   172 ;;		wreg, status,2
+   173 ;; Tracked objects:
+   174 ;;		On entry : 17F/0
+   175 ;;		On exit  : 0/0
+   176 ;;		Unchanged: 0/0
+   177 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   178 ;;      Params:         0       0       0       0       0
+   179 ;;      Locals:         0       0       0       0       0
+   180 ;;      Temps:          3       0       0       0       0
+   181 ;;      Totals:         3       0       0       0       0
+   182 ;;Total ram usage:        3 bytes
+   183 ;; This function calls:
+   184 ;;		Nothing
+   185 ;; This function is called by:
+   186 ;;		Startup code after reset
+   187 ;; This function uses a non-reentrant model
+   188 ;;
+   189                           psect	maintext
+   190                           	file	"G:\PIC ass\7SEGMENT\cathode7segled\7seg0tof.c"
+   191                           	line	5
+   192                           	global	__size_of_main
+   193  0119                     	__size_of_main	equ	__end_of_main-_main
+   194                           	
+   195  06E7                     _main:	
+   196                           	opt	stack 8
+   197                           ; Regs used in _main: [wreg+status,2]
+   198                           	line	6
+   199                           	
+   200  06E7                     l1825:	
+   201                           ;7seg0tof.c: 6: TRISD=0;
+   202  06E7  1683               	bsf	status, 5	;RP0=1, select bank1
+   203  06E8  1303               	bcf	status, 6	;RP1=0, select bank1
+   204  06E9  0188               	clrf	(136)^080h	;volatile
+   205  06EA  2EEB               	goto	l1827
+   206                           	line	7
+   207                           ;7seg0tof.c: 7: while(1)
+   208                           	
+   209  06EB                     l687:	
+   210                           	line	9
+   211                           	
+   212  06EB                     l1827:	
+   213                           ;7seg0tof.c: 8: {
+   214                           ;7seg0tof.c: 9: PORTD=0b00111111;
+   215  06EB  303F               	movlw	(03Fh)
+   216  06EC  1283               	bcf	status, 5	;RP0=0, select bank0
+   217  06ED  1303               	bcf	status, 6	;RP1=0, select bank0
+   218  06EE  0088               	movwf	(8)	;volatile
+   219                           	line	10
+   220                           	
+   221  06EF                     l1829:	
+   222                           ;7seg0tof.c: 10: _delay((unsigned long)((500)*(20000000/4000.0)));
+   223                           	opt asmopt_off
+   224  06EF  300D               movlw  13
+   225  06F0  00F2               movwf	((??_main+0)+0+2),f
+   226  06F1  30A3               movlw	163
+   227  06F2  00F1               movwf	((??_main+0)+0+1),f
+   228  06F3  30BD               	movlw	189
+   229  06F4  00F0               movwf	((??_main+0)+0),f
+   230  06F5                     u2147:
+   231  06F5  0BF0               	decfsz	((??_main+0)+0),f
+   232  06F6  2EF5               	goto	u2147
+   233  06F7  0BF1               	decfsz	((??_main+0)+0+1),f
+   234  06F8  2EF5               	goto	u2147
+   235  06F9  0BF2               	decfsz	((??_main+0)+0+2),f
+   236  06FA  2EF5               	goto	u2147
+   237  06FB  0064               	clrwdt
+   238                           opt asmopt_on
+   239                           
+   240                           	line	12
+   241                           	
+   242  06FC                     l1831:	
+   243                           ;7seg0tof.c: 12: PORTD=0b00000110;
+   244  06FC  3006               	movlw	(06h)
+   245  06FD  1283               	bcf	status, 5	;RP0=0, select bank0
+   246  06FE  1303               	bcf	status, 6	;RP1=0, select bank0
+   247  06FF  0088               	movwf	(8)	;volatile
+   248                           	line	13
+   249                           	
+   250  0700                     l1833:	
+   251                           ;7seg0tof.c: 13: _delay((unsigned long)((500)*(20000000/4000.0)));
+   252                           	opt asmopt_off
+   253  0700  300D               movlw  13
+   254  0701  00F2               movwf	((??_main+0)+0+2),f
+   255  0702  30A3               movlw	163
+   256  0703  00F1               movwf	((??_main+0)+0+1),f
+   257  0704  30BD               	movlw	189
+   258  0705  00F0               movwf	((??_main+0)+0),f
+   259  0706                     u2157:
+   260  0706  0BF0               	decfsz	((??_main+0)+0),f
+   261  0707  2F06               	goto	u2157
+   262  0708  0BF1               	decfsz	((??_main+0)+0+1),f
+   263  0709  2F06               	goto	u2157
+   264  070A  0BF2               	decfsz	((??_main+0)+0+2),f
+   265  070B  2F06               	goto	u2157
+   266  070C  0064               	clrwdt
+   267                           opt asmopt_on
+   268                           
+   269                           	line	15
+   270                           	
+   271  070D                     l1835:	
+   272                           ;7seg0tof.c: 15: PORTD=0b01011011;
+   273  070D  305B               	movlw	(05Bh)
+   274  070E  1283               	bcf	status, 5	;RP0=0, select bank0
+   275  070F  1303               	bcf	status, 6	;RP1=0, select bank0
+   276  0710  0088               	movwf	(8)	;volatile
+   277                           	line	16
+   278                           	
+   279  0711                     l1837:	
+   280                           ;7seg0tof.c: 16: _delay((unsigned long)((500)*(20000000/4000.0)));
+   281                           	opt asmopt_off
+   282  0711  300D               movlw  13
+   283  0712  00F2               movwf	((??_main+0)+0+2),f
+   284  0713  30A3               movlw	163
+   285  0714  00F1               movwf	((??_main+0)+0+1),f
+   286  0715  30BD               	movlw	189
+   287  0716  00F0               movwf	((??_main+0)+0),f
+   288  0717                     u2167:
+   289  0717  0BF0               	decfsz	((??_main+0)+0),f
+   290  0718  2F17               	goto	u2167
+   291  0719  0BF1               	decfsz	((??_main+0)+0+1),f
+   292  071A  2F17               	goto	u2167
+   293  071B  0BF2               	decfsz	((??_main+0)+0+2),f
+   294  071C  2F17               	goto	u2167
+   295  071D  0064               	clrwdt
+   296                           opt asmopt_on
+   297                           
+   298                           	line	18
+   299                           	
+   300  071E                     l1839:	
+   301                           ;7seg0tof.c: 18: PORTD=0b01001111;
+   302  071E  304F               	movlw	(04Fh)
+   303  071F  1283               	bcf	status, 5	;RP0=0, select bank0
+   304  0720  1303               	bcf	status, 6	;RP1=0, select bank0
+   305  0721  0088               	movwf	(8)	;volatile
+   306                           	line	19
+   307                           	
+   308  0722                     l1841:	
+   309                           ;7seg0tof.c: 19: _delay((unsigned long)((500)*(20000000/4000.0)));
+   310                           	opt asmopt_off
+   311  0722  300D               movlw  13
+   312  0723  00F2               movwf	((??_main+0)+0+2),f
+   313  0724  30A3               movlw	163
+   314  0725  00F1               movwf	((??_main+0)+0+1),f
+   315  0726  30BD               	movlw	189
+   316  0727  00F0               movwf	((??_main+0)+0),f
+   317  0728                     u2177:
+   318  0728  0BF0               	decfsz	((??_main+0)+0),f
+   319  0729  2F28               	goto	u2177
+   320  072A  0BF1               	decfsz	((??_main+0)+0+1),f
+   321  072B  2F28               	goto	u2177
+   322  072C  0BF2               	decfsz	((??_main+0)+0+2),f
+   323  072D  2F28               	goto	u2177
+   324  072E  0064               	clrwdt
+   325                           opt asmopt_on
+   326                           
+   327                           	line	21
+   328                           	
+   329  072F                     l1843:	
+   330                           ;7seg0tof.c: 21: PORTD=0b01100110;
+   331  072F  3066               	movlw	(066h)
+   332  0730  1283               	bcf	status, 5	;RP0=0, select bank0
+   333  0731  1303               	bcf	status, 6	;RP1=0, select bank0
+   334  0732  0088               	movwf	(8)	;volatile
+   335                           	line	22
+   336                           	
+   337  0733                     l1845:	
+   338                           ;7seg0tof.c: 22: _delay((unsigned long)((500)*(20000000/4000.0)));
+   339                           	opt asmopt_off
+   340  0733  300D               movlw  13
+   341  0734  00F2               movwf	((??_main+0)+0+2),f
+   342  0735  30A3               movlw	163
+   343  0736  00F1               movwf	((??_main+0)+0+1),f
+   344  0737  30BD               	movlw	189
+   345  0738  00F0               movwf	((??_main+0)+0),f
+   346  0739                     u2187:
+   347  0739  0BF0               	decfsz	((??_main+0)+0),f
+   348  073A  2F39               	goto	u2187
+   349  073B  0BF1               	decfsz	((??_main+0)+0+1),f
+   350  073C  2F39               	goto	u2187
+   351  073D  0BF2               	decfsz	((??_main+0)+0+2),f
+   352  073E  2F39               	goto	u2187
+   353  073F  0064               	clrwdt
+   354                           opt asmopt_on
+   355                           
+   356                           	line	24
+   357                           	
+   358  0740                     l1847:	
+   359                           ;7seg0tof.c: 24: PORTD=0b01101101;
+   360  0740  306D               	movlw	(06Dh)
+   361  0741  1283               	bcf	status, 5	;RP0=0, select bank0
+   362  0742  1303               	bcf	status, 6	;RP1=0, select bank0
+   363  0743  0088               	movwf	(8)	;volatile
+   364                           	line	25
+   365                           	
+   366  0744                     l1849:	
+   367                           ;7seg0tof.c: 25: _delay((unsigned long)((500)*(20000000/4000.0)));
+   368                           	opt asmopt_off
+   369  0744  300D               movlw  13
+   370  0745  00F2               movwf	((??_main+0)+0+2),f
+   371  0746  30A3               movlw	163
+   372  0747  00F1               movwf	((??_main+0)+0+1),f
+   373  0748  30BD               	movlw	189
+   374  0749  00F0               movwf	((??_main+0)+0),f
+   375  074A                     u2197:
+   376  074A  0BF0               	decfsz	((??_main+0)+0),f
+   377  074B  2F4A               	goto	u2197
+   378  074C  0BF1               	decfsz	((??_main+0)+0+1),f
+   379  074D  2F4A               	goto	u2197
+   380  074E  0BF2               	decfsz	((??_main+0)+0+2),f
+   381  074F  2F4A               	goto	u2197
+   382  0750  0064               	clrwdt
+   383                           opt asmopt_on
+   384                           
+   385                           	line	27
+   386                           	
+   387  0751                     l1851:	
+   388                           ;7seg0tof.c: 27: PORTD=0b01111101;
+   389  0751  307D               	movlw	(07Dh)
+   390  0752  1283               	bcf	status, 5	;RP0=0, select bank0
+   391  0753  1303               	bcf	status, 6	;RP1=0, select bank0
+   392  0754  0088               	movwf	(8)	;volatile
+   393                           	line	28
+   394                           	
+   395  0755                     l1853:	
+   396                           ;7seg0tof.c: 28: _delay((unsigned long)((500)*(20000000/4000.0)));
+   397                           	opt asmopt_off
+   398  0755  300D               movlw  13
+   399  0756  00F2               movwf	((??_main+0)+0+2),f
+   400  0757  30A3               movlw	163
+   401  0758  00F1               movwf	((??_main+0)+0+1),f
+   402  0759  30BD               	movlw	189
+   403  075A  00F0               movwf	((??_main+0)+0),f
+   404  075B                     u2207:
+   405  075B  0BF0               	decfsz	((??_main+0)+0),f
+   406  075C  2F5B               	goto	u2207
+   407  075D  0BF1               	decfsz	((??_main+0)+0+1),f
+   408  075E  2F5B               	goto	u2207
+   409  075F  0BF2               	decfsz	((??_main+0)+0+2),f
+   410  0760  2F5B               	goto	u2207
+   411  0761  0064               	clrwdt
+   412                           opt asmopt_on
+   413                           
+   414                           	line	30
+   415                           	
+   416  0762                     l1855:	
+   417                           ;7seg0tof.c: 30: PORTD=0b00000111;
+   418  0762  3007               	movlw	(07h)
+   419  0763  1283               	bcf	status, 5	;RP0=0, select bank0
+   420  0764  1303               	bcf	status, 6	;RP1=0, select bank0
+   421  0765  0088               	movwf	(8)	;volatile
+   422                           	line	31
+   423                           	
+   424  0766                     l1857:	
+   425                           ;7seg0tof.c: 31: _delay((unsigned long)((500)*(20000000/4000.0)));
+   426                           	opt asmopt_off
+   427  0766  300D               movlw  13
+   428  0767  00F2               movwf	((??_main+0)+0+2),f
+   429  0768  30A3               movlw	163
+   430  0769  00F1               movwf	((??_main+0)+0+1),f
+   431  076A  30BD               	movlw	189
+   432  076B  00F0               movwf	((??_main+0)+0),f
+   433  076C                     u2217:
+   434  076C  0BF0               	decfsz	((??_main+0)+0),f
+   435  076D  2F6C               	goto	u2217
+   436  076E  0BF1               	decfsz	((??_main+0)+0+1),f
+   437  076F  2F6C               	goto	u2217
+   438  0770  0BF2               	decfsz	((??_main+0)+0+2),f
+   439  0771  2F6C               	goto	u2217
+   440  0772  0064               	clrwdt
+   441                           opt asmopt_on
+   442                           
+   443                           	line	33
+   444                           	
+   445  0773                     l1859:	
+   446                           ;7seg0tof.c: 33: PORTD=0b01111111;
+   447  0773  307F               	movlw	(07Fh)
+   448  0774  1283               	bcf	status, 5	;RP0=0, select bank0
+   449  0775  1303               	bcf	status, 6	;RP1=0, select bank0
+   450  0776  0088               	movwf	(8)	;volatile
+   451                           	line	34
+   452                           	
+   453  0777                     l1861:	
+   454                           ;7seg0tof.c: 34: _delay((unsigned long)((500)*(20000000/4000.0)));
+   455                           	opt asmopt_off
+   456  0777  300D               movlw  13
+   457  0778  00F2               movwf	((??_main+0)+0+2),f
+   458  0779  30A3               movlw	163
+   459  077A  00F1               movwf	((??_main+0)+0+1),f
+   460  077B  30BD               	movlw	189
+   461  077C  00F0               movwf	((??_main+0)+0),f
+   462  077D                     u2227:
+   463  077D  0BF0               	decfsz	((??_main+0)+0),f
+   464  077E  2F7D               	goto	u2227
+   465  077F  0BF1               	decfsz	((??_main+0)+0+1),f
+   466  0780  2F7D               	goto	u2227
+   467  0781  0BF2               	decfsz	((??_main+0)+0+2),f
+   468  0782  2F7D               	goto	u2227
+   469  0783  0064               	clrwdt
+   470                           opt asmopt_on
+   471                           
+   472                           	line	36
+   473                           	
+   474  0784                     l1863:	
+   475                           ;7seg0tof.c: 36: PORTD=0b01101111;
+   476  0784  306F               	movlw	(06Fh)
+   477  0785  1283               	bcf	status, 5	;RP0=0, select bank0
+   478  0786  1303               	bcf	status, 6	;RP1=0, select bank0
+   479  0787  0088               	movwf	(8)	;volatile
+   480                           	line	37
+   481                           	
+   482  0788                     l1865:	
+   483                           ;7seg0tof.c: 37: _delay((unsigned long)((500)*(20000000/4000.0)));
+   484                           	opt asmopt_off
+   485  0788  300D               movlw  13
+   486  0789  00F2               movwf	((??_main+0)+0+2),f
+   487  078A  30A3               movlw	163
+   488  078B  00F1               movwf	((??_main+0)+0+1),f
+   489  078C  30BD               	movlw	189
+   490  078D  00F0               movwf	((??_main+0)+0),f
+   491  078E                     u2237:
+   492  078E  0BF0               	decfsz	((??_main+0)+0),f
+   493  078F  2F8E               	goto	u2237
+   494  0790  0BF1               	decfsz	((??_main+0)+0+1),f
+   495  0791  2F8E               	goto	u2237
+   496  0792  0BF2               	decfsz	((??_main+0)+0+2),f
+   497  0793  2F8E               	goto	u2237
+   498  0794  0064               	clrwdt
+   499                           opt asmopt_on
+   500                           
+   501                           	line	39
+   502                           	
+   503  0795                     l1867:	
+   504                           ;7seg0tof.c: 39: PORTD=0b01110111;
+   505  0795  3077               	movlw	(077h)
+   506  0796  1283               	bcf	status, 5	;RP0=0, select bank0
+   507  0797  1303               	bcf	status, 6	;RP1=0, select bank0
+   508  0798  0088               	movwf	(8)	;volatile
+   509                           	line	40
+   510                           	
+   511  0799                     l1869:	
+   512                           ;7seg0tof.c: 40: _delay((unsigned long)((500)*(20000000/4000.0)));
+   513                           	opt asmopt_off
+   514  0799  300D               movlw  13
+   515  079A  00F2               movwf	((??_main+0)+0+2),f
+   516  079B  30A3               movlw	163
+   517  079C  00F1               movwf	((??_main+0)+0+1),f
+   518  079D  30BD               	movlw	189
+   519  079E  00F0               movwf	((??_main+0)+0),f
+   520  079F                     u2247:
+   521  079F  0BF0               	decfsz	((??_main+0)+0),f
+   522  07A0  2F9F               	goto	u2247
+   523  07A1  0BF1               	decfsz	((??_main+0)+0+1),f
+   524  07A2  2F9F               	goto	u2247
+   525  07A3  0BF2               	decfsz	((??_main+0)+0+2),f
+   526  07A4  2F9F               	goto	u2247
+   527  07A5  0064               	clrwdt
+   528                           opt asmopt_on
+   529                           
+   530                           	line	42
+   531                           	
+   532  07A6                     l1871:	
+   533                           ;7seg0tof.c: 42: PORTD=0b01111111;
+   534  07A6  307F               	movlw	(07Fh)
+   535  07A7  1283               	bcf	status, 5	;RP0=0, select bank0
+   536  07A8  1303               	bcf	status, 6	;RP1=0, select bank0
+   537  07A9  0088               	movwf	(8)	;volatile
+   538                           	line	43
+   539                           	
+   540  07AA                     l1873:	
+   541                           ;7seg0tof.c: 43: _delay((unsigned long)((500)*(20000000/4000.0)));
+   542                           	opt asmopt_off
+   543  07AA  300D               movlw  13
+   544  07AB  00F2               movwf	((??_main+0)+0+2),f
+   545  07AC  30A3               movlw	163
+   546  07AD  00F1               movwf	((??_main+0)+0+1),f
+   547  07AE  30BD               	movlw	189
+   548  07AF  00F0               movwf	((??_main+0)+0),f
+   549  07B0                     u2257:
+   550  07B0  0BF0               	decfsz	((??_main+0)+0),f
+   551  07B1  2FB0               	goto	u2257
+   552  07B2  0BF1               	decfsz	((??_main+0)+0+1),f
+   553  07B3  2FB0               	goto	u2257
+   554  07B4  0BF2               	decfsz	((??_main+0)+0+2),f
+   555  07B5  2FB0               	goto	u2257
+   556  07B6  0064               	clrwdt
+   557                           opt asmopt_on
+   558                           
+   559                           	line	45
+   560                           	
+   561  07B7                     l1875:	
+   562                           ;7seg0tof.c: 45: PORTD=0b00111001;
+   563  07B7  3039               	movlw	(039h)
+   564  07B8  1283               	bcf	status, 5	;RP0=0, select bank0
+   565  07B9  1303               	bcf	status, 6	;RP1=0, select bank0
+   566  07BA  0088               	movwf	(8)	;volatile
+   567                           	line	46
+   568                           	
+   569  07BB                     l1877:	
+   570                           ;7seg0tof.c: 46: _delay((unsigned long)((500)*(20000000/4000.0)));
+   571                           	opt asmopt_off
+   572  07BB  300D               movlw  13
+   573  07BC  00F2               movwf	((??_main+0)+0+2),f
+   574  07BD  30A3               movlw	163
+   575  07BE  00F1               movwf	((??_main+0)+0+1),f
+   576  07BF  30BD               	movlw	189
+   577  07C0  00F0               movwf	((??_main+0)+0),f
+   578  07C1                     u2267:
+   579  07C1  0BF0               	decfsz	((??_main+0)+0),f
+   580  07C2  2FC1               	goto	u2267
+   581  07C3  0BF1               	decfsz	((??_main+0)+0+1),f
+   582  07C4  2FC1               	goto	u2267
+   583  07C5  0BF2               	decfsz	((??_main+0)+0+2),f
+   584  07C6  2FC1               	goto	u2267
+   585  07C7  0064               	clrwdt
+   586                           opt asmopt_on
+   587                           
+   588                           	line	48
+   589                           	
+   590  07C8                     l1879:	
+   591                           ;7seg0tof.c: 48: PORTD=0b00111111;
+   592  07C8  303F               	movlw	(03Fh)
+   593  07C9  1283               	bcf	status, 5	;RP0=0, select bank0
+   594  07CA  1303               	bcf	status, 6	;RP1=0, select bank0
+   595  07CB  0088               	movwf	(8)	;volatile
+   596                           	line	49
+   597                           	
+   598  07CC                     l1881:	
+   599                           ;7seg0tof.c: 49: _delay((unsigned long)((500)*(20000000/4000.0)));
+   600                           	opt asmopt_off
+   601  07CC  300D               movlw  13
+   602  07CD  00F2               movwf	((??_main+0)+0+2),f
+   603  07CE  30A3               movlw	163
+   604  07CF  00F1               movwf	((??_main+0)+0+1),f
+   605  07D0  30BD               	movlw	189
+   606  07D1  00F0               movwf	((??_main+0)+0),f
+   607  07D2                     u2277:
+   608  07D2  0BF0               	decfsz	((??_main+0)+0),f
+   609  07D3  2FD2               	goto	u2277
+   610  07D4  0BF1               	decfsz	((??_main+0)+0+1),f
+   611  07D5  2FD2               	goto	u2277
+   612  07D6  0BF2               	decfsz	((??_main+0)+0+2),f
+   613  07D7  2FD2               	goto	u2277
+   614  07D8  0064               	clrwdt
+   615                           opt asmopt_on
+   616                           
+   617                           	line	51
+   618                           	
+   619  07D9                     l1883:	
+   620                           ;7seg0tof.c: 51: PORTD=0b01111001;
+   621  07D9  3079               	movlw	(079h)
+   622  07DA  1283               	bcf	status, 5	;RP0=0, select bank0
+   623  07DB  1303               	bcf	status, 6	;RP1=0, select bank0
+   624  07DC  0088               	movwf	(8)	;volatile
+   625                           	line	52
+   626                           	
+   627  07DD                     l1885:	
+   628                           ;7seg0tof.c: 52: _delay((unsigned long)((500)*(20000000/4000.0)));
+   629                           	opt asmopt_off
+   630  07DD  300D               movlw  13
+   631  07DE  00F2               movwf	((??_main+0)+0+2),f
+   632  07DF  30A3               movlw	163
+   633  07E0  00F1               movwf	((??_main+0)+0+1),f
+   634  07E1  30BD               	movlw	189
+   635  07E2  00F0               movwf	((??_main+0)+0),f
+   636  07E3                     u2287:
+   637  07E3  0BF0               	decfsz	((??_main+0)+0),f
+   638  07E4  2FE3               	goto	u2287
+   639  07E5  0BF1               	decfsz	((??_main+0)+0+1),f
+   640  07E6  2FE3               	goto	u2287
+   641  07E7  0BF2               	decfsz	((??_main+0)+0+2),f
+   642  07E8  2FE3               	goto	u2287
+   643  07E9  0064               	clrwdt
+   644                           opt asmopt_on
+   645                           
+   646                           	line	54
+   647                           	
+   648  07EA                     l1887:	
+   649                           ;7seg0tof.c: 54: PORTD=0b01110001;
+   650  07EA  3071               	movlw	(071h)
+   651  07EB  1283               	bcf	status, 5	;RP0=0, select bank0
+   652  07EC  1303               	bcf	status, 6	;RP1=0, select bank0
+   653  07ED  0088               	movwf	(8)	;volatile
+   654                           	line	55
+   655                           	
+   656  07EE                     l1889:	
+   657                           ;7seg0tof.c: 55: _delay((unsigned long)((500)*(20000000/4000.0)));
+   658                           	opt asmopt_off
+   659  07EE  300D               movlw  13
+   660  07EF  00F2               movwf	((??_main+0)+0+2),f
+   661  07F0  30A3               movlw	163
+   662  07F1  00F1               movwf	((??_main+0)+0+1),f
+   663  07F2  30BD               	movlw	189
+   664  07F3  00F0               movwf	((??_main+0)+0),f
+   665  07F4                     u2297:
+   666  07F4  0BF0               	decfsz	((??_main+0)+0),f
+   667  07F5  2FF4               	goto	u2297
+   668  07F6  0BF1               	decfsz	((??_main+0)+0+1),f
+   669  07F7  2FF4               	goto	u2297
+   670  07F8  0BF2               	decfsz	((??_main+0)+0+2),f
+   671  07F9  2FF4               	goto	u2297
+   672  07FA  0064               	clrwdt
+   673                           opt asmopt_on
+   674                           
+   675  07FB  2EEB               	goto	l1827
+   676                           	line	56
+   677                           	
+   678  07FC                     l688:	
+   679                           	line	7
+   680  07FC  2EEB               	goto	l1827
+   681                           	
+   682  07FD                     l689:	
+   683                           	line	57
+   684                           	
+   685  07FD                     l690:	
+   686                           	global	start
+   687  07FD  120A  118A  2800   	ljmp	start
+   688                           	opt stack 0
+   689                           GLOBAL	__end_of_main
+   690  0800                     	__end_of_main:
+   691 ;; =============== function _main ends ============
+   692                           
+   693                           	signat	_main,88
+   694                           psect	maintext
+   695                           	global	btemp
+   696  007E                     	btemp set 07Eh
+   697                           
+   698                           	DABS	1,126,2	;btemp
+   699                           	global	wtemp0
+   700  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Wed Aug 30 08:10:05 2023
+
+                 l690 07FD                   l687 06EB                   l688 07FC                   l689 07FD  
+                l1831 06FC                  l1841 0722                  l1833 0700                  l1825 06E7  
+                l1851 0751                  l1843 072F                  l1835 070D                  l1827 06EB  
+                l1861 0777                  l1853 0755                  l1845 0733                  l1837 0711  
+                l1829 06EF                  l1871 07A6                  l1863 0784                  l1855 0762  
+                l1847 0740                  l1839 071E                  l1881 07CC                  l1873 07AA  
+                l1865 0788                  l1857 0766                  l1849 0744                  l1883 07D9  
+                l1875 07B7                  l1867 0795                  l1859 0773                  l1885 07DD  
+                l1877 07BB                  l1869 0799                  l1887 07EA                  l1879 07C8  
+                l1889 07EE                  u2207 075B                  u2217 076C                  u2227 077D  
+                u2147 06F5                  u2237 078E                  u2157 0706                  u2247 079F  
+                u2167 0717                  u2257 07B0                  u2177 0728                  u2267 07C1  
+                u2187 0739                  u2277 07D2                  u2197 074A                  u2287 07E3  
+                u2297 07F4                  _main 06E7                  btemp 007E                  start 0000  
+               ?_main 0070                 _PORTD 0008                 _TRISD 0088                 status 0003  
+               wtemp0 007E          __end_of_main 0800                ??_main 0070        __pcstackCOMMON 0070  
+          __pmaintext 06E7  end_of_initialization 06E3   start_initialization 06E3         __size_of_main 0119  
