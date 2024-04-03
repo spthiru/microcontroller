@@ -1,0 +1,168 @@
+__S0 2008 0 ABS
+__S1 73 0 ABS
+__S2 0 0 ABS
+_PEN 48A 0 ABS
+_SEN 488 0 ABS
+__Hintentry 0 0 CODE
+__Lintentry 0 0 CODE
+_main 7DA 0 CODE
+btemp 7E 0 ABS
+_exit 0 0 CODE
+start 0 0 CODE
+__size_of_i2c_wait 0 0 ABS
+_SSPM0 A0 0 ABS
+_SSPM1 A1 0 ABS
+_SSPM2 A2 0 ABS
+_SSPM3 A3 0 ABS
+reset_vec 0 0 CODE
+_SSPEN A5 0 ABS
+wtemp0 7E 0 ABS
+__Hconfig 2008 0 CONFIG
+__Lconfig 2007 0 CONFIG
+__end_of_i2c_start 7DA 0 CODE
+__Hram 0 0 ABS
+__Lram 0 0 ABS
+?_main 70 0 COMMON
+__size_of_gpio_config 0 0 ABS
+__Hfunctab 0 0 CODE
+__Lfunctab 0 0 CODE
+_TRISC3 43B 0 ABS
+_TRISC4 43C 0 ABS
+_i2c_wait 7C0 0 CODE
+__Hcommon 0 0 ABS
+__Lcommon 0 0 ABS
+__Heeprom_data 0 0 EEDATA
+__Leeprom_data 0 0 EEDATA
+_i2c_init 7B4 0 CODE
+_SSPADD 93 0 ABS
+_i2c_stop 7A7 0 CODE
+_SSPBUF 13 0 ABS
+__size_of_i2c_init 0 0 ABS
+__Habs1 0 0 ABS
+__Labs1 0 0 ABS
+__Hsfr0 0 0 ABS
+__Lsfr0 0 0 ABS
+__Hsfr1 0 0 ABS
+__Lsfr1 0 0 ABS
+__Hsfr2 0 0 ABS
+__Lsfr2 0 0 ABS
+__Hsfr3 0 0 ABS
+__Lsfr3 0 0 ABS
+__ptext102 0 0 CODE
+__ptext103 7CD 0 CODE
+__ptext104 7A7 0 CODE
+__ptext105 7AF 0 CODE
+__Hcode 0 0 ABS
+__Lcode 0 0 ABS
+__ptext106 7B4 0 CODE
+??_main 70 0 COMMON
+__ptext107 7C0 0 CODE
+__Hinit 0 0 CODE
+__Linit 0 0 CODE
+__end_of_main 800 0 CODE
+__ptext108 0 0 CODE
+__Htext 0 0 ABS
+__Ltext 0 0 ABS
+end_of_initialization 7AB 0 CODE
+?_i2c_wait 70 0 COMMON
+?_i2c_init 70 0 COMMON
+__Hstrings 0 0 ABS
+__Lstrings 0 0 ABS
+?_i2c_stop 70 0 COMMON
+__Hbank0 0 0 ABS
+__Lbank0 0 0 ABS
+__Hbank1 0 0 ABS
+__Lbank1 0 0 ABS
+_i2c_start 7CD 0 CODE
+__Hbank2 0 0 ABS
+__Lbank2 0 0 ABS
+__Hbank3 0 0 ABS
+__Lbank3 0 0 ABS
+__Hpowerup 0 0 CODE
+_SSPSTAT 94 0 ABS
+__Lpowerup 0 0 CODE
+__end_of_gpio_config 7B4 0 CODE
+__Hclrtext 0 0 ABS
+__Lclrtext 0 0 ABS
+__Hidloc 0 0 IDLOC
+__Lidloc 0 0 IDLOC
+__Hcinit 0 0 ABS
+__Lcinit 0 0 ABS
+__size_of_main 0 0 ABS
+??_i2c_start 70 0 COMMON
+??_i2c_wait 70 0 COMMON
+??_i2c_init 70 0 COMMON
+__end_of_i2c_stop 7AB 0 CODE
+__Hend_init 3 0 CODE
+__Lend_init 0 0 CODE
+??_gpio_config 70 0 COMMON
+__end_of_i2c_wait 7CD 0 CODE
+__size_of_i2c_stop 0 0 ABS
+??_i2c_stop 70 0 COMMON
+__size_of_i2c_start 0 0 ABS
+__Hreset_vec 0 0 CODE
+__Lreset_vec 0 0 CODE
+?_i2c_start 70 0 COMMON
+intlevel0 0 0 CODE
+__end_of_i2c_init 7C0 0 CODE
+intlevel1 0 0 CODE
+intlevel2 0 0 CODE
+intlevel3 0 0 CODE
+intlevel4 0 0 CODE
+intlevel5 0 0 CODE
+?_gpio_config 70 0 COMMON
+__HcstackCOMMON 0 0 ABS
+__LcstackCOMMON 0 0 ABS
+__pcstackCOMMON 70 0 COMMON
+start_initialization 7AB 0 CODE
+__Hmaintext 0 0 ABS
+__Lmaintext 0 0 ABS
+__pmaintext 7DA 0 CODE
+_gpio_config 7AF 0 CODE
+%segments
+reset_vec 0 5 CODE 0
+config 400E 400F CONFIG 400E
+cstackCOMMON 70 72 COMMON 70
+maintext FB4 FFF CODE FB4
+text103 F9A FB3 CODE F9A
+text107 F80 F99 CODE F80
+text106 F68 F7F CODE F68
+text105 F5E F67 CODE F5E
+cinit F56 F5D CODE F56
+text104 F4E F55 CODE F4E
+%locals
+startup.obj
+startup.as
+65 0 0 CODE
+i2c_master_mode.obj
+G:\example\i2c_Master_Mode\i2c_master.c
+3 2007 0 CONFIG
+i2c_master_mode.as
+91 7AB 0 CODE
+92 7AC 0 CODE
+G:\example\i2c_Master_Mode\i2c_master.c
+43 7DA 0 CODE
+44 7DF 0 CODE
+48 7E5 0 CODE
+49 7EA 0 CODE
+50 7EF 0 CODE
+46 7FC 0 CODE
+52 7FD 0 CODE
+31 7CD 0 CODE
+32 7D0 0 CODE
+34 7D5 0 CODE
+35 7D9 0 CODE
+39 7A7 0 CODE
+40 7AA 0 CODE
+25 7AF 0 CODE
+26 7B2 0 CODE
+27 7B3 0 CODE
+13 7B4 0 CODE
+15 7B7 0 CODE
+16 7B8 0 CODE
+17 7B9 0 CODE
+18 7BA 0 CODE
+20 7BB 0 CODE
+21 7BF 0 CODE
+8 7C0 0 CODE
+9 7CC 0 CODE

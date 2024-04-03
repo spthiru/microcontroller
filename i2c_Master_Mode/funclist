@@ -1,0 +1,7 @@
+_i2c_start: CODE, 1997 0 13
+_main: CODE, 2010 0 38
+_gpio_config: CODE, 1967 0 5
+_i2c_stop: CODE, 1959 0 4
+_i2c_wait: CODE, 1984 0 13
+_i2c_init: CODE, 1972 0 12
+Total: 85

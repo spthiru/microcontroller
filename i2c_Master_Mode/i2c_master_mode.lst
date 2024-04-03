@@ -1,0 +1,733 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Tue Jan 02 15:40:35 2024
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 3 "G:\example\i2c_Master_Mode\i2c_master.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 3 "G:\example\i2c_Master_Mode\i2c_master.c"
+    45  2007  1F7A               	dw 0x1f7a ;#
+    46                           	FNCALL	_main,_gpio_config
+    47                           	FNCALL	_main,_i2c_init
+    48                           	FNCALL	_main,_i2c_start
+    49                           	FNCALL	_main,_i2c_stop
+    50                           	FNCALL	_i2c_start,_i2c_wait
+    51                           	FNROOT	_main
+    52                           	global	_SSPBUF
+    53                           psect	text102,local,class=CODE,delta=2
+    54                           global __ptext102
+    55  0000                     __ptext102:
+    56  0013                     _SSPBUF	set	19
+    57                           	global	_SSPEN
+    58  00A5                     _SSPEN	set	165
+    59                           	global	_SSPM0
+    60  00A0                     _SSPM0	set	160
+    61                           	global	_SSPM1
+    62  00A1                     _SSPM1	set	161
+    63                           	global	_SSPM2
+    64  00A2                     _SSPM2	set	162
+    65                           	global	_SSPM3
+    66  00A3                     _SSPM3	set	163
+    67                           	global	_SSPADD
+    68  0093                     _SSPADD	set	147
+    69                           	global	_SSPSTAT
+    70  0094                     _SSPSTAT	set	148
+    71                           	global	_PEN
+    72  048A                     _PEN	set	1162
+    73                           	global	_SEN
+    74  0488                     _SEN	set	1160
+    75                           	global	_TRISC3
+    76  043B                     _TRISC3	set	1083
+    77                           	global	_TRISC4
+    78  043C                     _TRISC4	set	1084
+    79                           	file	"i2c_master_mode.as"
+    80                           	line	#
+    81                           psect cinit,class=CODE,delta=2
+    82                           global start_initialization
+    83  07AB                     start_initialization:
+    84                           
+    85                           psect cinit,class=CODE,delta=2
+    86                           global end_of_initialization
+    87                           
+    88                           ;End of C runtime variable initialization code
+    89                           
+    90  07AB                     end_of_initialization:
+    91  07AB  0183               clrf status
+    92  07AC  120A  118A  2FDA   ljmp _main	;jump to C main() function
+    93                           psect	cstackCOMMON,class=COMMON,space=1
+    94                           global __pcstackCOMMON
+    95  0070                     __pcstackCOMMON:
+    96                           	global	?_i2c_wait
+    97  0070                     ?_i2c_wait:	; 0 bytes @ 0x0
+    98                           	global	??_i2c_wait
+    99  0070                     ??_i2c_wait:	; 0 bytes @ 0x0
+   100                           	global	?_i2c_init
+   101  0070                     ?_i2c_init:	; 0 bytes @ 0x0
+   102                           	global	??_i2c_init
+   103  0070                     ??_i2c_init:	; 0 bytes @ 0x0
+   104                           	global	?_gpio_config
+   105  0070                     ?_gpio_config:	; 0 bytes @ 0x0
+   106                           	global	??_gpio_config
+   107  0070                     ??_gpio_config:	; 0 bytes @ 0x0
+   108                           	global	?_i2c_start
+   109  0070                     ?_i2c_start:	; 0 bytes @ 0x0
+   110                           	global	??_i2c_start
+   111  0070                     ??_i2c_start:	; 0 bytes @ 0x0
+   112                           	global	?_i2c_stop
+   113  0070                     ?_i2c_stop:	; 0 bytes @ 0x0
+   114                           	global	??_i2c_stop
+   115  0070                     ??_i2c_stop:	; 0 bytes @ 0x0
+   116                           	global	??_main
+   117  0070                     ??_main:	; 0 bytes @ 0x0
+   118                           	global	?_main
+   119  0070                     ?_main:	; 2 bytes @ 0x0
+   120  0070                     	ds	3
+   121 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+   122 ;;Auto spaces:   Size  Autos    Used
+   123 ;; COMMON          14      3       3
+   124 ;; BANK0           80      0       0
+   125 ;; BANK1           80      0       0
+   126 ;; BANK3           96      0       0
+   127 ;; BANK2           96      0       0
+   128                           
+   129 ;;
+   130 ;; Pointer list with targets:
+   131                           
+   132                           
+   133                           
+   134 ;;
+   135 ;; Critical Paths under _main in COMMON
+   136 ;;
+   137 ;;   None.
+   138 ;;
+   139 ;; Critical Paths under _main in BANK0
+   140 ;;
+   141 ;;   None.
+   142 ;;
+   143 ;; Critical Paths under _main in BANK1
+   144 ;;
+   145 ;;   None.
+   146 ;;
+   147 ;; Critical Paths under _main in BANK3
+   148 ;;
+   149 ;;   None.
+   150 ;;
+   151 ;; Critical Paths under _main in BANK2
+   152 ;;
+   153 ;;   None.
+   154                           
+   155 ;;
+   156 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   157 ;;
+   158                           
+   159 ;;
+   160 ;;Call Graph Tables:
+   161 ;;
+   162 ;; ---------------------------------------------------------------------------------
+   163 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   164 ;; ---------------------------------------------------------------------------------
+   165 ;; (0) _main                                                 7     7      0       0
+   166 ;;                                              0 COMMON     3     3      0
+   167 ;;                        _gpio_config
+   168 ;;                           _i2c_init
+   169 ;;                          _i2c_start
+   170 ;;                           _i2c_stop
+   171 ;; ---------------------------------------------------------------------------------
+   172 ;; (1) _i2c_start                                            0     0      0       0
+   173 ;;                           _i2c_wait
+   174 ;; ---------------------------------------------------------------------------------
+   175 ;; (1) _i2c_stop                                             0     0      0       0
+   176 ;; ---------------------------------------------------------------------------------
+   177 ;; (1) _gpio_config                                          0     0      0       0
+   178 ;; ---------------------------------------------------------------------------------
+   179 ;; (1) _i2c_init                                             0     0      0       0
+   180 ;; ---------------------------------------------------------------------------------
+   181 ;; (2) _i2c_wait                                             0     0      0       0
+   182 ;; ---------------------------------------------------------------------------------
+   183 ;; Estimated maximum stack depth 2
+   184 ;; ---------------------------------------------------------------------------------
+   185                           
+   186 ;; Call Graph Graphs:
+   187                           
+   188 ;; _main (ROOT)
+   189 ;;   _gpio_config
+   190 ;;   _i2c_init
+   191 ;;   _i2c_start
+   192 ;;     _i2c_wait
+   193 ;;   _i2c_stop
+   194 ;;
+   195                           
+   196 ;; Address spaces:
+   197                           
+   198 ;;Name               Size   Autos  Total    Cost      Usage
+   199 ;;BITCOMMON            E      0       0       0        0.0%
+   200 ;;EEDATA             100      0       0       0        0.0%
+   201 ;;NULL                 0      0       0       0        0.0%
+   202 ;;CODE                 0      0       0       0        0.0%
+   203 ;;COMMON               E      3       3       1       21.4%
+   204 ;;BITSFR0              0      0       0       1        0.0%
+   205 ;;SFR0                 0      0       0       1        0.0%
+   206 ;;BITSFR1              0      0       0       2        0.0%
+   207 ;;SFR1                 0      0       0       2        0.0%
+   208 ;;STACK                0      0       2       2        0.0%
+   209 ;;ABS                  0      0       0       3        0.0%
+   210 ;;BITBANK0            50      0       0       4        0.0%
+   211 ;;BITSFR3              0      0       0       4        0.0%
+   212 ;;SFR3                 0      0       0       4        0.0%
+   213 ;;BANK0               50      0       0       5        0.0%
+   214 ;;BITSFR2              0      0       0       5        0.0%
+   215 ;;SFR2                 0      0       0       5        0.0%
+   216 ;;BITBANK1            50      0       0       6        0.0%
+   217 ;;BANK1               50      0       0       7        0.0%
+   218 ;;BITBANK3            60      0       0       8        0.0%
+   219 ;;BANK3               60      0       0       9        0.0%
+   220 ;;BITBANK2            60      0       0      10        0.0%
+   221 ;;BANK2               60      0       0      11        0.0%
+   222 ;;DATA                 0      0       0      12        0.0%
+   223                           
+   224                           	global	_main
+   225                           psect	maintext,global,class=CODE,delta=2
+   226                           global __pmaintext
+   227  07DA                     __pmaintext:
+   228                           
+   229 ;; *************** function _main *****************
+   230 ;; Defined at:
+   231 ;;		line 42 in file "G:\example\i2c_Master_Mode\i2c_master.c"
+   232 ;; Parameters:    Size  Location     Type
+   233 ;;		None
+   234 ;; Auto vars:     Size  Location     Type
+   235 ;;  val2            2    0        short 
+   236 ;;  val1            2    0        short 
+   237 ;; Return value:  Size  Location     Type
+   238 ;;                  2  704[COMMON] int 
+   239 ;; Registers used:
+   240 ;;		wreg, status,2, status,0, pclath, cstack
+   241 ;; Tracked objects:
+   242 ;;		On entry : 17F/0
+   243 ;;		On exit  : 0/0
+   244 ;;		Unchanged: 0/0
+   245 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   246 ;;      Params:         0       0       0       0       0
+   247 ;;      Locals:         0       0       0       0       0
+   248 ;;      Temps:          3       0       0       0       0
+   249 ;;      Totals:         3       0       0       0       0
+   250 ;;Total ram usage:        3 bytes
+   251 ;; Hardware stack levels required when called:    2
+   252 ;; This function calls:
+   253 ;;		_gpio_config
+   254 ;;		_i2c_init
+   255 ;;		_i2c_start
+   256 ;;		_i2c_stop
+   257 ;; This function is called by:
+   258 ;;		Startup code after reset
+   259 ;; This function uses a non-reentrant model
+   260 ;;
+   261                           psect	maintext
+   262                           	file	"G:\example\i2c_Master_Mode\i2c_master.c"
+   263                           	line	42
+   264                           	global	__size_of_main
+   265  0026                     	__size_of_main	equ	__end_of_main-_main
+   266                           	
+   267  07DA                     _main:	
+   268                           	opt	stack 6
+   269                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   270                           	line	43
+   271                           	
+   272  07DA                     l1861:	
+   273                           ;i2c_master.c: 43: gpio_config();
+   274  07DA  120A  118A  27AF   	fcall	_gpio_config
+              120A  118A         
+   275                           	line	44
+   276                           	
+   277  07DF                     l1863:	
+   278                           ;i2c_master.c: 44: i2c_init();
+   279  07DF  120A  118A  27B4   	fcall	_i2c_init
+              120A  118A         
+   280  07E4  2FE5               	goto	l1865
+   281                           	line	46
+   282                           ;i2c_master.c: 45: short int val1,val2;
+   283                           ;i2c_master.c: 46: while(1)
+   284                           	
+   285  07E5                     l705:	
+   286                           	line	48
+   287                           	
+   288  07E5                     l1865:	
+   289                           ;i2c_master.c: 47: {
+   290                           ;i2c_master.c: 48: i2c_start();
+   291  07E5  120A  118A  27CD   	fcall	_i2c_start
+              120A  118A         
+   292                           	line	49
+   293                           ;i2c_master.c: 49: i2c_stop();
+   294  07EA  120A  118A  27A7   	fcall	_i2c_stop
+              120A  118A         
+   295                           	line	50
+   296                           	
+   297  07EF                     l1867:	
+   298                           ;i2c_master.c: 50: _delay((unsigned long)((100)*(20000000/4000.0)));
+   299                           	opt asmopt_off
+   300  07EF  3003               movlw  3
+   301  07F0  00F2               movwf	((??_main+0)+0+2),f
+   302  07F1  3088               movlw	136
+   303  07F2  00F1               movwf	((??_main+0)+0+1),f
+   304  07F3  3056               	movlw	86
+   305  07F4  00F0               movwf	((??_main+0)+0),f
+   306  07F5                     u2167:
+   307  07F5  0BF0               	decfsz	((??_main+0)+0),f
+   308  07F6  2FF5               	goto	u2167
+   309  07F7  0BF1               	decfsz	((??_main+0)+0+1),f
+   310  07F8  2FF5               	goto	u2167
+   311  07F9  0BF2               	decfsz	((??_main+0)+0+2),f
+   312  07FA  2FF5               	goto	u2167
+   313                           opt asmopt_on
+   314                           
+   315  07FB  2FE5               	goto	l1865
+   316                           	line	51
+   317                           	
+   318  07FC                     l706:	
+   319                           	line	46
+   320  07FC  2FE5               	goto	l1865
+   321                           	
+   322  07FD                     l707:	
+   323                           	line	52
+   324                           	
+   325  07FD                     l708:	
+   326                           	global	start
+   327  07FD  120A  118A  2800   	ljmp	start
+   328                           	opt stack 0
+   329                           GLOBAL	__end_of_main
+   330  0800                     	__end_of_main:
+   331 ;; =============== function _main ends ============
+   332                           
+   333                           	signat	_main,90
+   334                           	global	_i2c_start
+   335                           psect	text103,local,class=CODE,delta=2
+   336                           global __ptext103
+   337  07CD                     __ptext103:
+   338                           
+   339 ;; *************** function _i2c_start *****************
+   340 ;; Defined at:
+   341 ;;		line 29 in file "G:\example\i2c_Master_Mode\i2c_master.c"
+   342 ;; Parameters:    Size  Location     Type
+   343 ;;		None
+   344 ;; Auto vars:     Size  Location     Type
+   345 ;;		None
+   346 ;; Return value:  Size  Location     Type
+   347 ;;		None               void
+   348 ;; Registers used:
+   349 ;;		wreg, status,2, status,0, pclath, cstack
+   350 ;; Tracked objects:
+   351 ;;		On entry : 0/0
+   352 ;;		On exit  : 0/0
+   353 ;;		Unchanged: 0/0
+   354 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   355 ;;      Params:         0       0       0       0       0
+   356 ;;      Locals:         0       0       0       0       0
+   357 ;;      Temps:          0       0       0       0       0
+   358 ;;      Totals:         0       0       0       0       0
+   359 ;;Total ram usage:        0 bytes
+   360 ;; Hardware stack levels used:    1
+   361 ;; Hardware stack levels required when called:    1
+   362 ;; This function calls:
+   363 ;;		_i2c_wait
+   364 ;; This function is called by:
+   365 ;;		_main
+   366 ;; This function uses a non-reentrant model
+   367 ;;
+   368                           psect	text103
+   369                           	file	"G:\example\i2c_Master_Mode\i2c_master.c"
+   370                           	line	29
+   371                           	global	__size_of_i2c_start
+   372  000D                     	__size_of_i2c_start	equ	__end_of_i2c_start-_i2c_start
+   373                           	
+   374  07CD                     _i2c_start:	
+   375                           	opt	stack 6
+   376                           ; Regs used in _i2c_start: [wreg+status,2+status,0+pclath+cstack]
+   377                           	line	31
+   378                           	
+   379  07CD                     l1855:	
+   380                           ;i2c_master.c: 31: SEN = 1;
+   381  07CD  1683               	bsf	status, 5	;RP0=1, select bank1
+   382  07CE  1303               	bcf	status, 6	;RP1=0, select bank1
+   383  07CF  1411               	bsf	(1160/8)^080h,(1160)&7
+   384                           	line	32
+   385                           	
+   386  07D0                     l1857:	
+   387                           ;i2c_master.c: 32: i2c_wait();
+   388  07D0  120A  118A  27C0   	fcall	_i2c_wait
+              120A  118A         
+   389                           	line	34
+   390                           	
+   391  07D5                     l1859:	
+   392                           ;i2c_master.c: 34: SSPBUF = 0x42;
+   393  07D5  3042               	movlw	(042h)
+   394  07D6  1283               	bcf	status, 5	;RP0=0, select bank0
+   395  07D7  1303               	bcf	status, 6	;RP1=0, select bank0
+   396  07D8  0093               	movwf	(19)	;volatile
+   397                           	line	35
+   398                           	
+   399  07D9                     l699:	
+   400  07D9  0008               	return
+   401                           	opt stack 0
+   402                           GLOBAL	__end_of_i2c_start
+   403  07DA                     	__end_of_i2c_start:
+   404 ;; =============== function _i2c_start ends ============
+   405                           
+   406                           	signat	_i2c_start,88
+   407                           	global	_i2c_stop
+   408                           psect	text104,local,class=CODE,delta=2
+   409                           global __ptext104
+   410  07A7                     __ptext104:
+   411                           
+   412 ;; *************** function _i2c_stop *****************
+   413 ;; Defined at:
+   414 ;;		line 37 in file "G:\example\i2c_Master_Mode\i2c_master.c"
+   415 ;; Parameters:    Size  Location     Type
+   416 ;;		None
+   417 ;; Auto vars:     Size  Location     Type
+   418 ;;		None
+   419 ;; Return value:  Size  Location     Type
+   420 ;;		None               void
+   421 ;; Registers used:
+   422 ;;		None
+   423 ;; Tracked objects:
+   424 ;;		On entry : 0/0
+   425 ;;		On exit  : 0/0
+   426 ;;		Unchanged: 0/0
+   427 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   428 ;;      Params:         0       0       0       0       0
+   429 ;;      Locals:         0       0       0       0       0
+   430 ;;      Temps:          0       0       0       0       0
+   431 ;;      Totals:         0       0       0       0       0
+   432 ;;Total ram usage:        0 bytes
+   433 ;; Hardware stack levels used:    1
+   434 ;; This function calls:
+   435 ;;		Nothing
+   436 ;; This function is called by:
+   437 ;;		_main
+   438 ;; This function uses a non-reentrant model
+   439 ;;
+   440                           psect	text104
+   441                           	file	"G:\example\i2c_Master_Mode\i2c_master.c"
+   442                           	line	37
+   443                           	global	__size_of_i2c_stop
+   444  0004                     	__size_of_i2c_stop	equ	__end_of_i2c_stop-_i2c_stop
+   445                           	
+   446  07A7                     _i2c_stop:	
+   447                           	opt	stack 7
+   448                           ; Regs used in _i2c_stop: []
+   449                           	line	39
+   450                           	
+   451  07A7                     l1087:	
+   452                           ;i2c_master.c: 39: PEN = 1;
+   453  07A7  1683               	bsf	status, 5	;RP0=1, select bank1
+   454  07A8  1303               	bcf	status, 6	;RP1=0, select bank1
+   455  07A9  1511               	bsf	(1162/8)^080h,(1162)&7
+   456                           	line	40
+   457                           	
+   458  07AA                     l702:	
+   459  07AA  0008               	return
+   460                           	opt stack 0
+   461                           GLOBAL	__end_of_i2c_stop
+   462  07AB                     	__end_of_i2c_stop:
+   463 ;; =============== function _i2c_stop ends ============
+   464                           
+   465                           	signat	_i2c_stop,88
+   466                           	global	_gpio_config
+   467                           psect	text105,local,class=CODE,delta=2
+   468                           global __ptext105
+   469  07AF                     __ptext105:
+   470                           
+   471 ;; *************** function _gpio_config *****************
+   472 ;; Defined at:
+   473 ;;		line 23 in file "G:\example\i2c_Master_Mode\i2c_master.c"
+   474 ;; Parameters:    Size  Location     Type
+   475 ;;		None
+   476 ;; Auto vars:     Size  Location     Type
+   477 ;;		None
+   478 ;; Return value:  Size  Location     Type
+   479 ;;		None               void
+   480 ;; Registers used:
+   481 ;;		None
+   482 ;; Tracked objects:
+   483 ;;		On entry : 0/0
+   484 ;;		On exit  : 0/0
+   485 ;;		Unchanged: 0/0
+   486 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   487 ;;      Params:         0       0       0       0       0
+   488 ;;      Locals:         0       0       0       0       0
+   489 ;;      Temps:          0       0       0       0       0
+   490 ;;      Totals:         0       0       0       0       0
+   491 ;;Total ram usage:        0 bytes
+   492 ;; Hardware stack levels used:    1
+   493 ;; This function calls:
+   494 ;;		Nothing
+   495 ;; This function is called by:
+   496 ;;		_main
+   497 ;; This function uses a non-reentrant model
+   498 ;;
+   499                           psect	text105
+   500                           	file	"G:\example\i2c_Master_Mode\i2c_master.c"
+   501                           	line	23
+   502                           	global	__size_of_gpio_config
+   503  0005                     	__size_of_gpio_config	equ	__end_of_gpio_config-_gpio_config
+   504                           	
+   505  07AF                     _gpio_config:	
+   506                           	opt	stack 7
+   507                           ; Regs used in _gpio_config: []
+   508                           	line	25
+   509                           	
+   510  07AF                     l1085:	
+   511                           ;i2c_master.c: 25: TRISC3 = 1;
+   512  07AF  1683               	bsf	status, 5	;RP0=1, select bank1
+   513  07B0  1303               	bcf	status, 6	;RP1=0, select bank1
+   514  07B1  1587               	bsf	(1083/8)^080h,(1083)&7
+   515                           	line	26
+   516                           ;i2c_master.c: 26: TRISC4 = 1;
+   517  07B2  1607               	bsf	(1084/8)^080h,(1084)&7
+   518                           	line	27
+   519                           	
+   520  07B3                     l696:	
+   521  07B3  0008               	return
+   522                           	opt stack 0
+   523                           GLOBAL	__end_of_gpio_config
+   524  07B4                     	__end_of_gpio_config:
+   525 ;; =============== function _gpio_config ends ============
+   526                           
+   527                           	signat	_gpio_config,88
+   528                           	global	_i2c_init
+   529                           psect	text106,local,class=CODE,delta=2
+   530                           global __ptext106
+   531  07B4                     __ptext106:
+   532                           
+   533 ;; *************** function _i2c_init *****************
+   534 ;; Defined at:
+   535 ;;		line 11 in file "G:\example\i2c_Master_Mode\i2c_master.c"
+   536 ;; Parameters:    Size  Location     Type
+   537 ;;		None
+   538 ;; Auto vars:     Size  Location     Type
+   539 ;;		None
+   540 ;; Return value:  Size  Location     Type
+   541 ;;		None               void
+   542 ;; Registers used:
+   543 ;;		wreg
+   544 ;; Tracked objects:
+   545 ;;		On entry : 0/0
+   546 ;;		On exit  : 0/0
+   547 ;;		Unchanged: 0/0
+   548 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   549 ;;      Params:         0       0       0       0       0
+   550 ;;      Locals:         0       0       0       0       0
+   551 ;;      Temps:          0       0       0       0       0
+   552 ;;      Totals:         0       0       0       0       0
+   553 ;;Total ram usage:        0 bytes
+   554 ;; Hardware stack levels used:    1
+   555 ;; This function calls:
+   556 ;;		Nothing
+   557 ;; This function is called by:
+   558 ;;		_main
+   559 ;; This function uses a non-reentrant model
+   560 ;;
+   561                           psect	text106
+   562                           	file	"G:\example\i2c_Master_Mode\i2c_master.c"
+   563                           	line	11
+   564                           	global	__size_of_i2c_init
+   565  000C                     	__size_of_i2c_init	equ	__end_of_i2c_init-_i2c_init
+   566                           	
+   567  07B4                     _i2c_init:	
+   568                           	opt	stack 7
+   569                           ; Regs used in _i2c_init: [wreg]
+   570                           	line	13
+   571                           	
+   572  07B4                     l1081:	
+   573                           ;i2c_master.c: 13: SSPEN = 1;
+   574  07B4  1283               	bcf	status, 5	;RP0=0, select bank0
+   575  07B5  1303               	bcf	status, 6	;RP1=0, select bank0
+   576  07B6  1694               	bsf	(165/8),(165)&7
+   577                           	line	15
+   578                           ;i2c_master.c: 15: SSPM0 = 0;
+   579  07B7  1014               	bcf	(160/8),(160)&7
+   580                           	line	16
+   581                           ;i2c_master.c: 16: SSPM1 = 0;
+   582  07B8  1094               	bcf	(161/8),(161)&7
+   583                           	line	17
+   584                           ;i2c_master.c: 17: SSPM2 = 0;
+   585  07B9  1114               	bcf	(162/8),(162)&7
+   586                           	line	18
+   587                           ;i2c_master.c: 18: SSPM3 = 1;
+   588  07BA  1594               	bsf	(163/8),(163)&7
+   589                           	line	20
+   590                           	
+   591  07BB                     l1083:	
+   592                           ;i2c_master.c: 20: SSPADD = 0X3F;
+   593  07BB  303F               	movlw	(03Fh)
+   594  07BC  1683               	bsf	status, 5	;RP0=1, select bank1
+   595  07BD  1303               	bcf	status, 6	;RP1=0, select bank1
+   596  07BE  0093               	movwf	(147)^080h	;volatile
+   597                           	line	21
+   598                           	
+   599  07BF                     l693:	
+   600  07BF  0008               	return
+   601                           	opt stack 0
+   602                           GLOBAL	__end_of_i2c_init
+   603  07C0                     	__end_of_i2c_init:
+   604 ;; =============== function _i2c_init ends ============
+   605                           
+   606                           	signat	_i2c_init,88
+   607                           	global	_i2c_wait
+   608                           psect	text107,local,class=CODE,delta=2
+   609                           global __ptext107
+   610  07C0                     __ptext107:
+   611                           
+   612 ;; *************** function _i2c_wait *****************
+   613 ;; Defined at:
+   614 ;;		line 6 in file "G:\example\i2c_Master_Mode\i2c_master.c"
+   615 ;; Parameters:    Size  Location     Type
+   616 ;;		None
+   617 ;; Auto vars:     Size  Location     Type
+   618 ;;		None
+   619 ;; Return value:  Size  Location     Type
+   620 ;;		None               void
+   621 ;; Registers used:
+   622 ;;		None
+   623 ;; Tracked objects:
+   624 ;;		On entry : 0/0
+   625 ;;		On exit  : 0/0
+   626 ;;		Unchanged: 0/0
+   627 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   628 ;;      Params:         0       0       0       0       0
+   629 ;;      Locals:         0       0       0       0       0
+   630 ;;      Temps:          0       0       0       0       0
+   631 ;;      Totals:         0       0       0       0       0
+   632 ;;Total ram usage:        0 bytes
+   633 ;; Hardware stack levels used:    1
+   634 ;; This function calls:
+   635 ;;		Nothing
+   636 ;; This function is called by:
+   637 ;;		_i2c_start
+   638 ;; This function uses a non-reentrant model
+   639 ;;
+   640                           psect	text107
+   641                           	file	"G:\example\i2c_Master_Mode\i2c_master.c"
+   642                           	line	6
+   643                           	global	__size_of_i2c_wait
+   644  000D                     	__size_of_i2c_wait	equ	__end_of_i2c_wait-_i2c_wait
+   645                           	
+   646  07C0                     _i2c_wait:	
+   647                           	opt	stack 6
+   648                           ; Regs used in _i2c_wait: []
+   649                           	line	8
+   650                           	
+   651  07C0                     l1077:	
+   652                           ;i2c_master.c: 8: while(SSPSTAT & 0x04 || SSPSTAT & 0x01);
+   653  07C0  2FC1               	goto	l687
+   654                           	
+   655  07C1                     l688:	
+   656                           	
+   657  07C1                     l687:	
+   658  07C1  1683               	bsf	status, 5	;RP0=1, select bank1
+   659  07C2  1303               	bcf	status, 6	;RP1=0, select bank1
+   660  07C3  1914               	btfsc	(148)^080h,(2)&7
+   661  07C4  2FC6               	goto	u11
+   662  07C5  2FC7               	goto	u10
+   663  07C6                     u11:
+   664  07C6  2FC1               	goto	l687
+   665  07C7                     u10:
+   666                           	
+   667  07C7                     l1079:	
+   668  07C7  1814               	btfsc	(148)^080h,(0)&7
+   669  07C8  2FCA               	goto	u21
+   670  07C9  2FCB               	goto	u20
+   671  07CA                     u21:
+   672  07CA  2FC1               	goto	l687
+   673  07CB                     u20:
+   674  07CB  2FCC               	goto	l690
+   675                           	
+   676  07CC                     l689:	
+   677                           	line	9
+   678                           	
+   679  07CC                     l690:	
+   680  07CC  0008               	return
+   681                           	opt stack 0
+   682                           GLOBAL	__end_of_i2c_wait
+   683  07CD                     	__end_of_i2c_wait:
+   684 ;; =============== function _i2c_wait ends ============
+   685                           
+   686                           	signat	_i2c_wait,88
+   687                           psect	text108,local,class=CODE,delta=2
+   688                           global __ptext108
+   689  0000                     __ptext108:
+   690                           	global	btemp
+   691  007E                     	btemp set 07Eh
+   692                           
+   693                           	DABS	1,126,2	;btemp
+   694                           	global	wtemp0
+   695  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Tue Jan 02 15:40:35 2024
+
+                  u10 07C7                    u11 07C6                    u20 07CB                    u21 07CA  
+                 l702 07AA                   l705 07E5                   l706 07FC                   l707 07FD  
+                 l708 07FD                   l690 07CC                   l693 07BF                   l687 07C1  
+                 l688 07C1                   l696 07B3                   l689 07CC                   l699 07D9  
+                 _PEN 048A                   _SEN 0488                  l1081 07B4                  l1083 07BB  
+                l1077 07C0                  l1085 07AF                  l1079 07C7                  l1087 07A7  
+                l1861 07DA                  l1855 07CD                  l1863 07DF                  l1857 07D0  
+                l1865 07E5                  l1859 07D5                  l1867 07EF                  u2167 07F5  
+                _main 07DA                  btemp 007E                  start 0000          ?_gpio_config 0070  
+               ?_main 0070                 _SSPM0 00A0                 _SSPM1 00A1                 _SSPM2 00A2  
+               _SSPM3 00A3                 _SSPEN 00A5                 status 0003                 wtemp0 007E  
+        __end_of_main 0800      __end_of_i2c_init 07C0      __end_of_i2c_wait 07CD      __end_of_i2c_stop 07AB  
+              ??_main 0070                _SSPADD 0093                _TRISC3 043B                _TRISC4 043C  
+              _SSPBUF 0013    __size_of_i2c_start 000D        __pcstackCOMMON 0070  __size_of_gpio_config 0005  
+   __end_of_i2c_start 07DA             ?_i2c_init 0070             ?_i2c_wait 0070             ?_i2c_stop 0070  
+          __pmaintext 07DA               _SSPSTAT 0094            ??_i2c_init 0070            ??_i2c_wait 0070  
+          ??_i2c_stop 0070  end_of_initialization 07AB   start_initialization 07AB             _i2c_start 07CD  
+   __size_of_i2c_init 000C     __size_of_i2c_wait 000D     __size_of_i2c_stop 0004         ??_gpio_config 0070  
+          ?_i2c_start 0070             __ptext102 0000             __ptext103 07CD             __ptext104 07A7  
+           __ptext105 07AF             __ptext106 07B4             __ptext107 07C0             __ptext108 0000  
+ __end_of_gpio_config 07B4           ??_i2c_start 0070              _i2c_init 07B4              _i2c_wait 07C0  
+            _i2c_stop 07A7           _gpio_config 07AF         __size_of_main 0026  
